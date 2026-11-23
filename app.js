@@ -29,3 +29,11 @@ function updateProgress(){const range=document.documentElement.scrollHeight-inne
 addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateProgress);}},{passive:true});
 addEventListener('resize',updateProgress);updateProgress();
 document.querySelector('#year').textContent=new Date().getFullYear();
+
+const copyBio=document.querySelector('#copy-bio');
+copyBio.addEventListener('click',async()=>{
+  const status=document.querySelector('#bio-status');
+  const text=Array.from(document.querySelectorAll('.about-copy > p')).map(p=>p.textContent.trim()).join('\n\n');
+  try{await navigator.clipboard.writeText(text);status.textContent='简介已复制';}
+  catch{status.textContent='未能复制，请直接选择上方简介文字。';}
+});

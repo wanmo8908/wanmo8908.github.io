@@ -17,6 +17,13 @@ Serve this directory with any static HTTP server, then open `index.html` through
 - Use the motion toggle to pause animation.
 - Press Ctrl+K / Command+K for quick navigation.
 - The page respects the system's reduced-motion preference.
+- Use the biography button to copy a short introduction.
+
+## Content and attribution
+
+Personal education and prior organizations are based on the company introduction supplied by Liang Chen. No unverified degree subjects, dates, job titles or operating metrics have been added.
+
+The research section credits Jie Zhang, Han Qiu and their collaborators and links to original publications. These are selected academic collaborations, including work published before SiliconProspect AI, rather than Liang Chen's personal publications.
 
 ## GitHub Pages
 
