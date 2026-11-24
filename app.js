@@ -5,13 +5,13 @@ let reduced=motionPreference.matches;
 const heroCanvas=document.querySelector('#hero-neural');
 const labCanvas=document.querySelector('#lab-neural');
 let hero,lab;
-try{hero=initNeural(heroCanvas,{mode:'interpret',labels:false,interactive:true,paused:reduced});lab=initNeural(labCanvas,{mode:'interpret',labels:true,interactive:true,paused:reduced});}catch(e){console.warn('Visual experience unavailable',e);document.querySelector('.lab-description').textContent='当前设备未能显示交互图。你仍可切换视角，阅读下方说明。';}
+try{hero=initNeural(heroCanvas,{mode:'interpret',labels:false,interactive:true,paused:reduced});lab=initNeural(labCanvas,{mode:'interpret',labels:true,interactive:true,paused:reduced});}catch(e){console.warn('Visual experience unavailable',e);document.querySelector('.lab-description').textContent='The interactive visual is unavailable on this device. You can still switch perspectives and read the descriptions.';}
 
-const descriptions={interpret:'观察节点之间的连接。移动鼠标改变视角，或轻触节点查看高亮。',safety:'注意高亮的局部信号与边界。一个细小的变化，也值得被理解。',quality:'沿着亮起的路径观察信息如何流动。从过程出发，寻找更好的方向。'};
+const descriptions={interpret:'Follow the connections. Move your pointer to change the view, or tap a node to highlight it.',safety:'Look for highlighted signals and boundaries. Even a small change deserves a closer look.',quality:'Follow the highlighted paths to see how information flows, and explore where it could go next.'};
 document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.mode;lab?.setMode(mode);hero?.setMode(mode);document.querySelectorAll('[data-mode]').forEach(other=>{const active=other===button;other.classList.toggle('active',active);other.setAttribute('aria-pressed',String(active));});document.querySelector('#lab-description').textContent=descriptions[mode];}));
 let paused=reduced;
 const motion=document.querySelector('#motion-toggle');
-function updateMotion(){motion.disabled=reduced;motion.textContent=reduced?'已遵循减少动态效果':paused?'开启动效':'暂停动效';motion.setAttribute('aria-pressed',String(paused));}
+function updateMotion(){motion.disabled=reduced;motion.textContent=reduced?'Reduced motion enabled':paused?'Resume motion':'Pause motion';motion.setAttribute('aria-pressed',String(paused));}
 updateMotion();
 motion.addEventListener('click',()=>{paused=!paused;hero?.setPaused(paused);lab?.setPaused(paused);updateMotion();});
 motionPreference.addEventListener('change',event=>{reduced=event.matches;paused=reduced;hero?.setPaused(paused);lab?.setPaused(paused);updateMotion();});
@@ -33,7 +33,7 @@ document.querySelector('#year').textContent=new Date().getFullYear();
 const copyBio=document.querySelector('#copy-bio');
 copyBio.addEventListener('click',async()=>{
   const status=document.querySelector('#bio-status');
-  const text=Array.from(document.querySelectorAll('.about-copy > p')).map(p=>p.textContent.trim()).join('\n\n');
-  try{await navigator.clipboard.writeText(text);status.textContent='简介已复制';}
-  catch{status.textContent='未能复制，请直接选择上方简介文字。';}
+  const text=Array.from(document.querySelectorAll('.about-copy > p')).map(p=>p.innerText.trim()).join('\n\n');
+  try{await navigator.clipboard.writeText(text);status.textContent='Bio copied';}
+  catch{status.textContent='Could not copy. Please select the bio text above.';}
 });
