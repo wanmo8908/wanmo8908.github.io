@@ -1,4 +1,4 @@
-# Liang Chen / 陈亮
+# Liang Chen
 
 Personal website of Liang Chen, co-founder of SiliconProspect AI.
 
