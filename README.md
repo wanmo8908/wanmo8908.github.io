@@ -21,7 +21,7 @@ Serve this directory with any static HTTP server, then open `index.html` through
 
 ## Content and attribution
 
-Personal education and prior organizations are based on the company introduction supplied by Liang Chen. No unverified degree subjects, dates, job titles or operating metrics have been added.
+Personal education and prior organizations are based on the company introduction supplied by Liang Chen. He directly confirmed the enrollment years, degree subjects and employment start dates in November 2026. No unconfirmed graduation years, departure dates, job titles or operating metrics have been added.
 
 The research section credits Jie Zhang, Han Qiu and their collaborators and links to original publications. These are selected academic collaborations, including work published before SiliconProspect AI, rather than Liang Chen's personal publications.
 
